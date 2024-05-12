@@ -10,9 +10,11 @@ import { persistore, store } from "./store"
 import { PersistGate } from "redux-persist/integration/react"
 import "./styles/global.scss"
 
+console.log({mode: import.meta.env.MODE})
 async function enableMocking() {
-  if (process.env.NODE_ENV !== 'development') {
-    return
+  // 是否启用mocker
+  if (import.meta.env.MODE !== 'staging') {
+    return console.log("NODE_ENV is not staging") //不是集成模拟环境
   }
   const { worker } = await import('../mock/node')
   return worker.start({

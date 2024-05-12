@@ -1,7 +1,7 @@
 {
-    "statusCode": 200,
-    "result": {
-        "token": "token",
-        "refreshToken": "refreshToken"
-    }
+  "statusCode": 200,
+  "result": {
+    "token": "token",
+    "refreshToken": "refreshToken"
+  }
 }

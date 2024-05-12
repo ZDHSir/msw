@@ -2,10 +2,11 @@
   "name": "upload",
   "version": "1.0.0",
   "description": "这是一个上传文件测试项目",
-  "main": "index.js",
+  "main": "main.tsx",
   "scripts": {
-    "dev": "vite serve --host",
-    "build": "vite build"
+    "dev:mock": "vite serve --host --mode=staging",
+    "dev": "vite serve --host --mode=development",
+    "build": "vite build --mode=production"
   },
   "author": "",
   "license": "ISC",
@@ -32,7 +33,7 @@
   },
   "msw": {
     "workerDirectory": [
-      "mock"
+      "public"
     ]
   }
 }

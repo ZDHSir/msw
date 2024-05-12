@@ -9,8 +9,12 @@ export default function Index({}: Props) {
   const logout = () => {
     dispatch(setUserInfo({token:""}))
   }
+  const getUserInfo = async() => {
+      const result = await fetch("/user/info", {method:"GET"}).then(res => res.json())
+      console.log({result})
+  }
   useEffect(() => {
-    
+    getUserInfo()
   },[])
   return (
     <div>
