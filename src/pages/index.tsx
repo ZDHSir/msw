@@ -13,13 +13,11 @@ export default function Index({}: Props) {
       const result = await fetch("/user/info", {method:"GET"}).then(res => res.json())
       console.log({result})
   }
-  useEffect(() => {
-    getUserInfo()
-  },[])
   return (
     <div>
       index
       <button onClick={logout}>退出</button>
+      <button onClick={getUserInfo}>请求用户信息</button>
     </div>
   )
 }
