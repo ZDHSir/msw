@@ -21,36 +21,34 @@ class HttpClient {
         return promise.finally(() => clearTimeout(timer));
     }
 
-    post(url: inputValue, data: any, options?:RequestOptions&Options): Promise<any> {
+    post(url: inputValue, options?:RequestOptions&Options): Promise<any> {
         return this.fetchWidthTimeout(url, {
+            credentials: 'include',
             ...options,
             method: 'POST',
-            body: JSON.stringify(data),
-            credentials: 'include'
         })
     }
 
     get(url: inputValue, options?:RequestOptions&Options): Promise<any> {
         return this.fetchWidthTimeout(url, {
+            credentials: 'include',
             ...options,
             method: 'GET',
-            credentials: 'include'
         })
     }
 
     delete(url: inputValue, options?:RequestOptions&Options): Promise<any> {
         return this.fetchWidthTimeout(url, {
-            ...options,
             credentials:'include',
+            ...options,
             method: 'DELETE',
         })
     }
 
-    put(url: inputValue, data?: any, options?:RequestOptions&Options): Promise<any> {
+    put(url: inputValue, options?:RequestOptions&Options): Promise<any> {
         return this.fetchWidthTimeout(url, {
-            ...options,
-            body: JSON.stringify(data),
             credentials: 'include',
+            ...options,
             method:"PUT"
         })
     }
