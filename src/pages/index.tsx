@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setUserInfo } from '../store/user'
+import {request} from "../utils/http";
 
 type Props = {}
 
@@ -10,8 +11,8 @@ export default function Index({}: Props) {
     dispatch(setUserInfo({token:""}))
   }
   const getUserInfo = async() => {
-      const result = await fetch("/user/info", {method:"GET"}).then(res => res.json())
-      console.log({result})
+      const { result, statusCode } = await request.get("/user/info")
+      console.log({statusCode, result})
   }
   return (
     <div>

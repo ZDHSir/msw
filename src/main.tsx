@@ -10,16 +10,18 @@ import { persistore, store } from "./store"
 import { PersistGate } from "redux-persist/integration/react"
 import "./styles/global.scss"
 import "./styles/var.scss"
+import { isMock } from "./constants";
 
 async function enableMocking() {
   // 是否启用mocker
-  if (import.meta.env.MODE !== 'staging') {
-    return console.log("NODE_ENV is not staging") //不是集成模拟环境
+  if (import.meta.env.MODE === 'staging' || isMock) {
+      const { worker } = await import('../mock/node')
+      return worker.start({
+          onUnhandledRequest: "bypass"
+      })
+  }else{
+      return console.log("NODE_ENV is not staging") //不是集成模拟环境
   }
-  const { worker } = await import('../mock/node')
-  return worker.start({
-    onUnhandledRequest: "bypass"
-  })
 }
 
 const App = () => {

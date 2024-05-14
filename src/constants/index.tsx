@@ -1,0 +1,1 @@
+export const isMock = false  //如果不是在staging环境运行，可以开启这个开启模拟环境
