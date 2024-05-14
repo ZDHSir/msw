@@ -9,6 +9,7 @@ import { Provider } from "react-redux"
 import { persistore, store } from "./store"
 import { PersistGate } from "redux-persist/integration/react"
 import "./styles/global.scss"
+import "./styles/var.scss"
 
 async function enableMocking() {
   // 是否启用mocker
