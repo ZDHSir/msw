@@ -1,0 +1,18 @@
+.container{
+    height: 200px;
+    .swiper-container{
+        height: 100%;
+        width: 600px;
+        padding: 10px 20px;
+    }
+    .swiper-slide{
+        border: 1px solid red;
+        filter: blur(1px);
+    }
+    .swiper-slide-active{
+        filter: blur(0px);
+    }
+    .swiper-wrapper{
+        align-items: center;
+    }
+}
