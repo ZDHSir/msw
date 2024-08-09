@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import counterReducer from "./counter"
 import userReducer from "./user"
+import todolistReducer from "./todoList"
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 // import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 // 使用storage
@@ -17,6 +18,7 @@ const persistConfig = {
 const reducers = combineReducers({
     counter: counterReducer,
     user:    userReducer,
+    todo: todolistReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducers);

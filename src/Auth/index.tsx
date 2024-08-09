@@ -8,10 +8,11 @@ type Props = {
 export default function Auth({ children }: Props) {
   const user = useSelector(state => state.user)
   useEffect(() => {
+      console.log({token: user});
       if(!user.token){
         window.location.href = "#/login"
       }
-  }, [user])
+  }, [user, location.pathname])
   return (
     <div>{children}</div>
   )

@@ -11,8 +11,10 @@ import { PersistGate } from "redux-persist/integration/react"
 import "./styles/global.scss"
 import "./styles/var.scss"
 import { isMock } from "./constants";
+import { ConfigProvider } from "antd"
+import zhCN from 'antd/locale/zh_CN';
 
-async function enableMocking() {
+async function enableMocking() {    
   // 是否启用mocker
   if (import.meta.env.MODE === 'staging' || isMock) {
       const { worker } = await import('../mock/node')
@@ -32,11 +34,13 @@ const App = () => {
         <React.StrictMode>
             <Provider store={store}>
                 <PersistGate persistor={persistore}>
-                    <Suspense fallback={<PageLoader />}>
-                        <Auth>
-                            <RouterProvider router={router}></RouterProvider>
-                        </Auth>
-                    </Suspense>
+                    <ConfigProvider locale={zhCN}>
+                        <Suspense fallback={<PageLoader />}>
+                            <Auth>
+                                <RouterProvider router={router}></RouterProvider>
+                            </Auth>
+                        </Suspense>
+                    </ConfigProvider>
                 </PersistGate> 
             </Provider>
         </React.StrictMode>
