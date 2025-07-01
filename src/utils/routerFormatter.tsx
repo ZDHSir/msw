@@ -9,9 +9,12 @@ export const routerFormatter = (keys: string[],  valueMap: any):any[] => {
         }else{
             path = path.replace("/pages", "").replace("/index.tsx", "").toLowerCase()
         }
+        const LazyComponent = lazy(valueMap[key])
+        console.log(`Loading component for path:`, LazyComponent);
+        
         const route = {
             path,
-            Component: lazy(valueMap[key])
+            Component: LazyComponent
         }
         result.push(route)
     })

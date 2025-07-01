@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setUserInfo } from '../store/user'
 import http from '../utils/axios';
@@ -23,7 +23,7 @@ export default function Index({}: Props) {
     dispatch(setUserInfo({token:""}))
   }
   const getUserInfo = async() => {
-      const { result, statusCode } = (await http.get("/user/info")) as any
+      const { result, statusCode } = (await http.get("/api/user/info")) as any
       console.log({statusCode, result})
   }
   return (
@@ -48,9 +48,8 @@ export default function Index({}: Props) {
         renderItem={(item) => <List.Item>{item.name}</List.Item>}
       />
       <button onClick={todoListSetter}>设置</button>
-      {/* index
       <button onClick={logout}>退出</button>
-      <button onClick={getUserInfo}>请求用户信息</button> */}
+      <button onClick={getUserInfo}>请求用户信息</button>
     </div>
   )
 }

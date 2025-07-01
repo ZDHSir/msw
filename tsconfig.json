@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es2020",
     "module": "Preserve",
     "esModuleInterop": true,
@@ -9,7 +10,10 @@
     "jsx": "react",
     "types": [
       "vite/client"
-    ]
+    ],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "exclude": [
     "node_modules"

@@ -4,7 +4,6 @@ import { version } from "../package.json"
 import { RouterProvider } from "react-router"
 import { router } from "./router"
 import PageLoader from "./Loader/PageLoader"
-import Auth from "./Auth"
 import { Provider } from "react-redux"
 import { persistore, store } from "./store"
 import { PersistGate } from "redux-persist/integration/react"
@@ -36,9 +35,7 @@ const App = () => {
                 <PersistGate persistor={persistore}>
                     <ConfigProvider locale={zhCN}>
                         <Suspense fallback={<PageLoader />}>
-                            <Auth>
-                                <RouterProvider router={router}></RouterProvider>
-                            </Auth>
+                            <RouterProvider router={router}></RouterProvider>
                         </Suspense>
                     </ConfigProvider>
                 </PersistGate> 

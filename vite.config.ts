@@ -1,10 +1,18 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
-import vitePluginRequire from "vite-plugin-require";
+import path from "path"
 
 export default defineConfig({
-    plugins: [
-        react(),
-        vitePluginRequire(),
-    ],
+    base: "./",
+    plugins: [react()],
+    server: {
+        port: 3000,
+        host: "0.0.0.0",
+        strictPort: true,
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+        },
+    },
 })

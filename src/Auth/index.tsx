@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSelector } from '../hooks/useSelector'
+import { useSelector } from '@/hooks/useSelector'
 
 type Props = {
     children: React.ReactNode
@@ -8,7 +8,6 @@ type Props = {
 export default function Auth({ children }: Props) {
   const user = useSelector(state => state.user)
   useEffect(() => {
-      console.log({token: user});
       if(!user.token){
         window.location.href = "#/login"
       }
