@@ -4,7 +4,8 @@ import { setUserInfo } from '../store/user'
 import http from '../utils/axios';
 import { useSelector } from '../hooks/useSelector';
 import { setTodoList, setDoneList } from '../store/todoList';
-import { List } from 'antd';
+import { Button } from 'antd';
+import { useNavigate, useNavigation, useRoutes } from 'react-router';
 
 type Props = {}
 
@@ -12,6 +13,7 @@ export default function Index({}: Props) {
   const dispatch = useDispatch()
   const todoList = useSelector(state => state.todo.todoList)
   const doneList = useSelector(state => state.todo.doneList)
+  const nav = useNavigate();
   const todoListSetter = () => {
     dispatch(setTodoList([{id: 1, name: "123", content: "做作业"}]))
   }
@@ -30,26 +32,21 @@ export default function Index({}: Props) {
     <div style={{padding: "10px"}}>
       <h3>Todo</h3>
       <br></br>
-      <List
-        size="small"
-        header={<div>TodoList</div>}
-        footer={<div></div>}
-        bordered
-        dataSource={todoList}
-        renderItem={(item) => <List.Item>{item.name}</List.Item>}
-      />
-      <br></br>
-      <List
-        size="small"
-        header={<div>DoneList</div>}
-        footer={<div></div>}
-        bordered
-        dataSource={doneList}
-        renderItem={(item) => <List.Item>{item.name}</List.Item>}
-      />
-      <button onClick={todoListSetter}>设置</button>
-      <button onClick={logout}>退出</button>
-      <button onClick={getUserInfo}>请求用户信息</button>
+      <Button onClick={()=>{
+        nav('/home')
+      }}>
+        点击跳转home
+      </Button>
+      <Button onClick={()=>{
+        nav('/vn007')
+      }}>
+        点击跳转vn007
+      </Button>
+      <Button onClick={()=>{
+        nav('/swiper')
+      }}>
+        点击跳转swiper
+      </Button>
     </div>
   )
 }

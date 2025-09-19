@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import vn007 from "@/assets/wasm/vn.wasm?url"
+import vn from "@/assets/wasm/vn.wasm?url"
 import { useWasm } from '@/hooks/useWasm';
 
 type Props = {}
@@ -12,7 +12,7 @@ export default function index({}: Props) {
                 delete window.calcPassword;
             }
         }, 
-        wasmUrl: vn007
+        wasmUrl: vn
     })
     function calc(imei: string = "000000000000000") {
         try {
