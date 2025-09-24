@@ -18,7 +18,7 @@ const persistConfig = {
 const reducers = combineReducers({
     counter: counterReducer,
     user:    userReducer,
-    todo: todolistReducer,
+    todo:    todolistReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducers);
